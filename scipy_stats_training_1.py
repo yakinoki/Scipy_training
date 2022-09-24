@@ -23,3 +23,39 @@ print("パラメータ"+str(p)+"の幾何分布に従う確率変数が2をと�
 lam = 0.1
 rv = stats.poisson(lam)
 print("パラメータ"+str(lam)+"のポアソン分布に従う確率変数が3をとる確率は"+str(round(rv.pmf(3),5))+"です。")
+
+#正規分布を定義。
+rv = stats.norm(2, 0.5)
+print(rv.mean())
+print(rv.var())
+
+print("確率密度関数の１における値は"+str(rv.pdf(1)))
+print("確率密度関数が2以下の値をとる確率は"+str(rv.cdf(2)))
+print("上側30%点は"+str(rv.isf(0.3)))
+print("80%区間は"+str(rv.interval(0.8)))
+
+#指数分布を定義。
+rv = stats.expon(scale=1/2)
+print(rv.mean())
+print(rv.var())
+
+#自由度10のカイ二乗分布を定義。
+rv = stats.chi2(10)
+print(rv.rvs(5))
+#歪度
+print(stats.skew(rv.rvs(5)))
+#尖度(3を引かない)
+print(stats.kurtosis(rv.rvs(5), fisher=False))
+
+
+#自由度10のt分布を定義。
+rv = stats.t(10)
+print(rv.rvs(5))
+#母平均150に対しt検定統計量とp値を返す。
+sample = [145, 150, 155, 153]
+t, p = stats.ttest_1samp(sample, 150)
+print(t, p)
+
+#自由度3,10のt分布を定義。
+rv = stats.f(3,10)
+print(rv.rvs(5))
