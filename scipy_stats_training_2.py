@@ -1,5 +1,6 @@
 from scipy import stats
 from scipy import integrate
+from functools import partial
 import numpy as np
 import warnings
 
@@ -21,3 +22,8 @@ def h(x,y):
         return 0
 
 print(integrate.nquad(h, [[-np.inf, np.inf],[-np.inf, np.inf]]))
+
+def h_x(x):
+    return integrate.quad(partial(h, x), -np.inf, np.inf)[0]
+def h_y(y):
+    return integrate.quad(partial(h, y=y), -np.inf, np.inf)[0]
