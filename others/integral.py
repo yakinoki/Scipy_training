@@ -1,10 +1,8 @@
 # pip install latexify-py
 import latexify
-from scipy import stats
 from scipy import integrate
 from functools import partial
-import numpy as np
-import warnings
+
 
 warnings.filterwarnings('ignore',category=integrate.IntegrationWarning)
 
