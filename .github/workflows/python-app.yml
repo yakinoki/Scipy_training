@@ -1,0 +1,27 @@
+# .github/workflows/basic-run.yml
+name: Run Python Scripts
+
+on: [push, pull_request]
+
+jobs:
+  run-python:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install scipy numpy matplotlib
+
+      - name: Run all .py files
+        run: |
+          python others/integral.py || true
+          python stats_training/scipy_stats_training_1.py || true
+          python stats_training/scipy_stats_training_2.py || true
