@@ -4,6 +4,10 @@
 
 `.github/workflows/python-app.yml` にて定義された CI パイプラインは、`push` および `pull_request` のたびに実行されます。
 
+## ローカルで GitHub Actions を試す（`act` の使用）
+
+GitHub Actions をリモートに push する前に、ローカルで挙動を確認したい場合は [nektos/act](https://github.com/nektos/act) を使うのが便利です。
+
 
 ## ファイル構成
 
